@@ -13,14 +13,15 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    final List <Widget> _children = [HomePage(),CategoryPage()];
-    int _currentIndex = 0;
+    final List<Widget> children = [HomePage(), CategoryPage()];
+    int currentIndex = 0;
 
     void onTapTapped(int index) {
       setState(() {
-        _currentIndex = index;
+        currentIndex = index;
       });
     }
+
     return Scaffold(
       appBar: CalendarAppBar(
         accent: Colors.green,
@@ -41,9 +42,16 @@ class _MainPageState extends State<MainPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.home)),
+            IconButton(
+              onPressed: () {
+                onTapTapped(0);
+              },
+              icon: Icon(Icons.home),
+            ),
             SizedBox(width: 20),
-            IconButton(onPressed: () {}, icon: Icon(Icons.list)),
+            IconButton(onPressed: () {
+              onTapTapped(1);
+            }, icon: Icon(Icons.list)),
           ],
         ),
       ),
