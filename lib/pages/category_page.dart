@@ -31,15 +31,22 @@ class _CategoryPageState extends State<CategoryPage> {
               ],
             ),
           ),
-          ListTile(
-            leading: Icon(Icons.upload, color: Colors.red,),
-            title: Text('sedekah'),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                IconButton(onPressed: (){}, icon: Icon(Icons.delete)),
-                IconButton(onPressed: (){}, icon: Icon(Icons.edit))
-              ],
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Card(
+              elevation: 10,
+              child: ListTile(
+                leading: Icon(Icons.upload, color: Colors.red,),
+                title: Text('sedekah'),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(onPressed: (){}, icon: Icon(Icons.delete)),
+                    SizedBox(width: 10,),
+                    IconButton(onPressed: (){}, icon: Icon(Icons.edit))
+                  ],
+                ),
+              ),
             ),
           ),
         ],
