@@ -9,6 +9,28 @@ class CategoryPage extends StatefulWidget {
 
 class _CategoryPageState extends State<CategoryPage> {
   bool isExpense = true;
+
+  void openDialog() {
+    showDialog(context: context, builder: (BuildContext context ){
+      return AlertDialog(
+        content: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                Text("add income"),
+                SizedBox(height: 10,),
+                TextFormField(
+                  decoration: InputDecoration(border: OutlineInputBorder(), hintText: "Name" ),
+                ),
+                SizedBox(height: 10,),
+                ElevatedButton(onPressed: () {}, child: Text("save"))
+              ],
+            ),
+          ),
+        ),
+      );
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,16 +45,18 @@ class _CategoryPageState extends State<CategoryPage> {
                   value: isExpense,
                   onChanged: (bool value) {
                     setState(() {
-                      isExpense = value ;
+                      isExpense = value;
                     });
                   },
                   activeColor: Colors.red, // thumb
                   activeTrackColor: Colors.red[200], // track
-                  // warna saat OFF
+                  
                   inactiveThumbColor: Colors.green, // thumb
                   inactiveTrackColor: Colors.green[200],
                 ),
-                IconButton(onPressed: () {}, icon: Icon(Icons.add))
+                IconButton(onPressed: () {
+                  openDialog();
+                }, icon: Icon(Icons.add))
               ],
             ),
           ),
@@ -41,7 +65,7 @@ class _CategoryPageState extends State<CategoryPage> {
             child: Card(
               elevation: 10,
               child: ListTile(
-                leading: Icon(Icons.upload, color: Colors.red,),
+                leading: (isExpense) ? Icon(Icons.upload, color: Colors.red,) :Icon(Icons.download, color: Colors.green),
                 title: Text('sedekah'),
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -59,7 +83,7 @@ class _CategoryPageState extends State<CategoryPage> {
             child: Card(
               elevation: 10,
               child: ListTile(
-                leading: Icon(Icons.upload, color: Colors.red,),
+                leading: (isExpense) ? Icon(Icons.upload, color: Colors.red,) :Icon(Icons.download, color: Colors.green),
                 title: Text('sedekah'),
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -72,6 +96,7 @@ class _CategoryPageState extends State<CategoryPage> {
               ),
             ),
           ),
+
         ],
       ),
     );
