@@ -23,7 +23,7 @@ class _CategoryPageState extends State<CategoryPage> {
                   value: isExpense,
                   onChanged: (bool value) {
                     setState(() {
-                      isExpense = value;
+                      isExpense = value ;
                     });
                   },
                   activeColor: Colors.red, // thumb
