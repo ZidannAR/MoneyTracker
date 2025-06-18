@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({super.key});
@@ -17,7 +18,7 @@ class _CategoryPageState extends State<CategoryPage> {
           child: Center(
             child: Column(
               children: [
-                Text("add income"),
+                Text((isExpense)?"add Expense":"add income", style: GoogleFonts.montserrat(fontSize: 18, color: (isExpense) ? Colors.red : Colors.green),),
                 SizedBox(height: 10,),
                 TextFormField(
                   decoration: InputDecoration(border: OutlineInputBorder(), hintText: "Name" ),
