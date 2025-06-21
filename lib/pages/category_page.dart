@@ -49,10 +49,10 @@ class _CategoryPageState extends State<CategoryPage> {
                       isExpense = value;
                     });
                   },
-                  activeColor: Colors.red, // thumb
-                  activeTrackColor: Colors.red[200], // track
+                  activeColor: Colors.red, 
+                  activeTrackColor: Colors.red[200], 
                   
-                  inactiveThumbColor: Colors.green, // thumb
+                  inactiveThumbColor: Colors.green, 
                   inactiveTrackColor: Colors.green[200],
                 ),
                 IconButton(onPressed: () {

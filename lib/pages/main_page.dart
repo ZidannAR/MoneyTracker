@@ -40,7 +40,10 @@ class _MainPageState extends State<MainPage> {
         visible: (currentIndex == 0)? true:false,
         child: FloatingActionButton(
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> TransactionPage()));
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> TransactionPage(),
+            )).then((value){
+              setState(() {});
+            });
           },
           backgroundColor: Colors.green,
           child: Icon(Icons.add),
