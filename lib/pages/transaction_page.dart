@@ -19,6 +19,7 @@ class _TransactionPageState extends State<TransactionPage> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
@@ -52,15 +53,24 @@ class _TransactionPageState extends State<TransactionPage> {
                   ),
                 ),
               ),
-              DropdownButton<String>(
-                value: dropDownValue,
-                icon: Icon(Icons.arrow_downward),
-                items: list.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem(value: value, child: Text(value));
-                }).toList(
-                  
+              SizedBox(height: 20),    
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text('Category', style: GoogleFonts.montserrat(),),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: DropdownButton<String>(
+                  value: dropDownValue,
+                  isExpanded: true,
+                  icon: Icon(Icons.arrow_downward),
+                  items: list.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem(value: value, child: Text(value));
+                  }).toList(
+                
+                  ),
+                  onChanged: (String? value) {},
                 ),
-                onChanged: (String? value) {},
               ),
             ],
           ),
