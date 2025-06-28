@@ -1,17 +1,13 @@
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:uangko/model/kategori.dart';
+import 'package:uangko/model/transaction.dart';
 
 part 'database.g.dart';
 
-class TodoItems extends Table {
-  IntColumn get id => integer().autoIncrement()();
-  TextColumn get title => text().withLength(min: 6, max: 32)();
-  TextColumn get content => text().named('body')();
-  DateTimeColumn get createdAt => dateTime().nullable()();
-}
 
-@DriftDatabase(tables: [TodoItems])
+@DriftDatabase(tables: [Category,Transactions])
 class AppDatabase extends _$AppDatabase {
   // After generating code, this class needs to define a `schemaVersion` getter
   // and a constructor telling drift where the database should be stored.
